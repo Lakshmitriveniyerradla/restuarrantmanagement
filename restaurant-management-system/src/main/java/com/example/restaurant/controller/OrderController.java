@@ -1,34 +1,89 @@
 package com.example.restaurant.controller;
 
 import com.example.restaurant.entity.CustomerOrder;
-import com.example.restaurant.service.OrderService;
+import com.example.restaurant.entity.OrderItem;
+import com.example.restaurant.repository.OrderRepository;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
-@RestController
+
+@Controller
 @RequestMapping("/orders")
 public class OrderController {
 
-    private final OrderService service;
 
-    public OrderController(OrderService service){
-        this.service=service;
+    private final OrderRepository orderRepository;
+
+
+    public OrderController(OrderRepository orderRepository) {
+        this.orderRepository = orderRepository;
     }
+
+
+
+    @PostMapping("/create")
+    public String createOrder(@ModelAttribute CustomerOrder order) {
+
+
+        order.setStatus("PENDING");
+
+        order.setOrderDate(LocalDateTime.now());
+
+
+        // TEMPORARY TEST ITEM
+        // Later we replace this with cart items
+
+        OrderItem item = new OrderItem();
+
+
+        item.setQuantity(1);
+
+        item.setPrice(10.0);
+
+
+
+        List<OrderItem> items = new ArrayList<>();
+
+        items.add(item);
+
+
+        order.setItems(items);
+
+
+        order.setTotalAmount(10.0);
+
+
+
+        orderRepository.save(order);
+
+
+
+        return "redirect:/payment";
+
+    }
+
+
+
 
     @GetMapping
-    public List<CustomerOrder> getOrders(){
-        return service.getOrders();
-    }
+    public String getOrders(Model model) {
 
-    @PostMapping
-    public CustomerOrder save(@RequestBody CustomerOrder order){
-        return service.save(order);
-    }
 
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id){
-        service.delete(id);
+        List<CustomerOrder> orders =
+                orderRepository.findAll();
+
+
+        model.addAttribute("orders", orders);
+
+
+        return "orders";
+
     }
 
 }
