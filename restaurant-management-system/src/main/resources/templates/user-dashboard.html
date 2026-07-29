@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culinary Heaven - User Dashboard</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        :root{
+            --primary:#ff6b35;
+            --secondary:#ff914d;
+            --light:#fff8f3;
+            --dark:#2d3436;
+        }
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            background:var(--light);
+        }
+
+        /* NAVBAR */
+        .navbar{
+            background:linear-gradient(135deg,var(--primary),var(--secondary));
+            padding:5px 13px;
+        }
+
+        .logo{
+            color:white;
+            font-size:28px;
+            font-weight:700;
+        }
+
+        .logo span{
+            font-size:35px;
+        }
+
+        /* SIDEBAR */
+        .sidebar{
+            position:fixed;
+            top:72px;
+            left:0;
+            width:250px;
+            height:100%;
+            background:white;
+            box-shadow:2px 0 10px rgba(0,0,0,0.1);
+            padding-top:20px;
+        }
+
+        .sidebar a{
+            display:block;
+            text-decoration:none;
+            color:#444;
+            padding:15px 25px;
+            font-size:17px;
+            transition:0.3s;
+        }
+
+        .sidebar a:hover{
+            background:var(--primary);
+            color:white;
+        }
+
+        .sidebar i{
+            margin-right:10px;
+        }
+
+        /* MAIN */
+        .main-content{
+            margin-left:250px;
+            padding:30px;
+        }
+
+        /* HERO */
+        .hero{
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.45)
+    ),
+    url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0");
+
+    background-size:cover;
+
+    background-position:center;
+
+    color:white;
+
+    border-radius:20px;
+
+    padding:60px 40px;
+
+    margin-bottom:30px;
+
+}
+
+        .hero h2{
+            font-size:38px;
+            font-weight:bold;
+        }
+
+        /* CATEGORY */
+        .category-card{
+            background:white;
+            border-radius:15px;
+            text-align:center;
+            padding:25px;
+            box-shadow:0 4px 15px rgba(0,0,0,0.08);
+            transition:0.3s;
+        }
+
+        .category-card:hover{
+            transform:translateY(-5px);
+        }
+
+        .category-icon{
+            font-size:40px;
+        }
+
+        /* FOOD */
+        .food-card{
+            border:none;
+            border-radius:18px;
+            overflow:hidden;
+            box-shadow:0 5px 18px rgba(0,0,0,0.08);
+        }
+
+        .food-card img{
+            height:220px;
+            object-fit:cover;
+        }
+
+        .price{
+            color:var(--primary);
+            font-weight:bold;
+            font-size:20px;
+        }
+
+        .btn-cart{
+            background:var(--primary);
+            color:white;
+            border:none;
+            width:100%;
+        }
+
+        .btn-cart:hover{
+            background:#e85b28;
+            color:white;
+        }
+
+        /* ORDER TABLE */
+        .orders{
+            background:white;
+            border-radius:20px;
+            padding:20px;
+            margin-top:30px;
+            box-shadow:0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .badge-preparing{
+            background:orange;
+        }
+
+        .badge-delivered{
+            background:green;
+        }
+
+        .badge-way{
+            background:dodgerblue;
+        }
+
+        @media(max-width:768px){
+
+            .sidebar{
+                display:none;
+            }
+
+            .main-content{
+                margin-left:0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="logo">
+            <span>🍽️</span> Culinary Heaven
+        </div>
+
+        <div class="text-white">
+            <i class="fa-solid fa-bell me-3"></i>
+            <i class="fa-solid fa-user"></i>
+            Welcome, User
+        </div>
+    </div>
+</nav>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+    <a href="/user-dashboard">
+        <i class="fa-solid fa-utensils"></i> Menu
+    </a>
+
+    <a href="/cart">
+        <i class="fa-solid fa-cart-shopping"></i> Cart
+    </a>
+
+    <a href="/my-orders">
+        <i class="fa-solid fa-box"></i> Orders
+    </a>
+
+    <a href="/payments">
+        <i class="fa-solid fa-credit-card"></i> Payments
+    </a>
+
+    <a href="/profile">
+        <i class="fa-solid fa-user"></i> Profile
+    </a>
+
+    <a href="/logout">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </a>
+
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+    <!-- HERO -->
+    <div class="hero">
+        <h2>Welcome Back 👋</h2>
+        <p class="mt-2">
+            Discover delicious meals and place your order today.
+        </p>
+    </div>
+
+    <!-- CATEGORIES -->
+    <h3 class="mb-4">Food Categories</h3>
+
+    <div class="row g-4 mb-5">
+
+        <div class="col-md-3">
+            <a href="/pizza-items" style="text-decoration:none; color:inherit;">
+                <div class="category-card">
+                    <div class="category-icon">🍕</div>
+                    <h5>Pizza</h5>
+            </a>
+
+
+
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <a href="/fastfood-items" style="text-decoration:none; color:inherit;">
+        <div class="category-card">
+            <div class="category-icon">🍔</div>
+            <h5>Burgers</h5>
+        </div>
+        </a>
+
+    </div>
+
+    <div class="col-md-3">
+        <a href="/indian-items" style="text-decoration:none; color:inherit;">
+        <div class="category-card">
+            <div class="category-icon">🍛</div>
+            <h5>Indian</h5>
+        </div>
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a href="/drinks" style="text-decoration:none; color:inherit;">
+        <div class="category-card">
+            <div class="category-icon">🥤</div>
+            <h5>Drinks</h5>
+        </div>
+    </div>
+    </a>
+
+</div>
+
+<!-- FEATURED ITEMS -->
+<h3 class="mb-4">Featured Dishes</h3>
+
+<div class="row g-4">
+
+    <div class="col-lg-4">
+        <div class="card food-card">
+            <img src="/images/biryani.jpg" alt="">
+            <div class="card-body">
+                <h5>Hyderabadi Biryani</h5>
+                <p>Authentic dum biryani with spices.</p>
+                <div class="price">$15.99</div>
+                <button class="btn btn-cart mt-3">
+                    Add To Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card food-card">
+            <img src="/images/cheese.jpg" alt="">
+            <div class="card-body">
+                <h5>Cheese Pizza</h5>
+                <p>Loaded with mozzarella cheese.</p>
+                <div class="price">$12.99</div>
+                <button class="btn btn-cart mt-3"
+                        onclick="addToCart('Classic Cheese Pizza',12.99)">
+
+                    Add To Cart
+
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card food-card">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd" alt="">
+            <div class="card-body">
+                <h5>Classic Burger</h5>
+                <p>Juicy grilled beef burger.</p>
+                <div class="price">$10.99</div>
+                <button class="btn btn-cart mt-3">
+                    Add To Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+
+
+    function addToCart(name,price){
+
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+
+
+    cart.push({
+
+    name:name,
+
+    price:price,
+
+    quantity:1
+
+    });
+</script>
+
+</body>
+</html>
