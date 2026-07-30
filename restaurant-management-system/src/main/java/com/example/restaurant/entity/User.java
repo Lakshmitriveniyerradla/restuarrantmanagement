@@ -75,4 +75,8 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public User orElseThrow(Object userNotFound) {
+        return null;
+    }
 }

@@ -85,7 +85,7 @@
     background:
     linear-gradient(
         rgba(0,0,0,0.45),
-        rgba(0,0,0,0.45)
+           rgba(0,0,0,0.45)
     ),
     url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0");
 
@@ -188,6 +188,216 @@
                 margin-left:0;
             }
         }
+        /* =========================
+   FOODZILLA FOOTER
+========================= */
+
+.premium-footer{
+
+background:linear-gradient(
+    135deg,
+    #c94b1d,
+    #e76f35
+);
+    color:#ffffff;
+text-shadow:0 1px 2px rgba(0,0,0,0.15);
+
+    padding:35px 25px 15px;
+
+    margin-top:50px;
+
+    border-radius:30px 30px 0 0;
+
+    box-shadow:0 -5px 20px rgba(0,0,0,0.15);
+
+}
+
+
+/* FOOTER LAYOUT */
+
+.footer-container{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1.5fr 1fr 1fr;
+
+    gap:40px;
+
+    text-align:center;
+
+    align-items:center;
+
+}
+
+
+
+/* BRAND */
+
+.footer-logo{
+
+    font-size:32px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    margin-bottom:12px;
+
+}
+
+
+
+.brand-column p{
+
+    font-size:14px;
+
+    line-height:1.6;
+
+    opacity:.95;
+
+    max-width:280px;
+
+    margin:auto;
+
+}
+
+
+
+/* HEADINGS */
+
+.footer-column h4{
+
+    font-size:20px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+
+.footer-column h4::after{
+
+    content:"";
+
+    display:block;
+
+    width:45px;
+
+    height:3px;
+
+    background:white;
+
+    margin:8px auto;
+
+    border-radius:10px;
+
+}
+
+
+
+/* LINKS */
+
+.footer-links a{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:15px;
+
+    margin-bottom:12px;
+
+    transition:.3s;
+
+}
+
+
+
+.footer-links a:hover{
+
+    color:#fff8f3;
+
+    transform:translateY(-3px);
+
+}
+
+
+
+.footer-links i{
+
+    font-size:14px;
+
+}
+
+
+
+/* CONTACT */
+
+.footer-column p{
+
+    font-size:14px;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.footer-column p i{
+
+    margin-right:8px;
+
+}
+
+
+
+/* BOTTOM COPYRIGHT */
+
+.footer-bottom{
+
+    max-width:1100px;
+
+    margin:25px auto 0;
+
+    padding-top:15px;
+
+    border-top:1px solid rgba(255,255,255,.4);
+
+    text-align:center;
+
+    font-size:13px;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .footer-container{
+
+        grid-template-columns:1fr;
+
+        gap:25px;
+
+    }
+
+}
+
     </style>
 </head>
 <body>
@@ -196,7 +406,7 @@
 <nav class="navbar">
     <div class="container-fluid">
         <div class="logo">
-            <span>🍽️</span> Culinary Heaven
+            <span>🍽️</span> FoodZilla
         </div>
 
         <div class="text-white">
@@ -341,6 +551,137 @@
     </div>
 
 </div>
+<footer class="premium-footer">
+
+
+    <div class="footer-container">
+
+
+        <!-- Brand Section -->
+
+        <div class="footer-column brand-column">
+
+
+            <div class="footer-logo">
+                🍽️ Foodzilla
+            </div>
+
+
+            <p>
+                Delicious food, amazing flavors, and memorable
+                dining experiences delivered with love.
+            </p>
+
+
+        </div>
+
+
+
+
+
+        <!-- Navigation Links -->
+
+        <div class="footer-column">
+
+
+            <h4>
+                Explore
+            </h4>
+
+
+            <div class="footer-links">
+
+
+                <a href="/user-dashboard">
+                    <i class="fa-solid fa-house"></i>
+                    Home
+                </a>
+
+
+                <a href="/menu">
+                    <i class="fa-solid fa-utensils"></i>
+                    Menu
+                </a>
+
+
+                <a href="/cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Cart
+                </a>
+
+
+                <a href="/my-orders">
+                    <i class="fa-solid fa-box"></i>
+                    Orders
+                </a>
+
+
+                <a href="/profile">
+                    <i class="fa-solid fa-user"></i>
+                    Profile
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+        <!-- Contact Section -->
+
+
+        <div class="footer-column">
+
+
+            <h4>
+                Contact Us
+            </h4>
+
+
+
+            <p>
+                <i class="fa-solid fa-location-dot"></i>
+                London, Ontario
+            </p>
+
+
+
+            <p>
+                <i class="fa-solid fa-phone"></i>
+                +1 234 567 890
+            </p>
+
+
+
+            <p>
+                <i class="fa-solid fa-envelope"></i>
+                support@foodzilla.com
+            </p>
+
+
+
+            <p>
+                <i class="fa-solid fa-clock"></i>
+                10:00 AM - 11:00 PM
+            </p>
+        </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+
+        © 2026 Foodzilla | Made with ❤️ for food lovers
+
+    </div>
+
+
+
+</footer>
 
 
 <script>
@@ -363,6 +704,57 @@
 
     });
 </script>
+<script>
 
+    function addToCart(name, price, image){
+
+
+        let cart = JSON.parse(
+            localStorage.getItem("cart")
+        ) || [];
+
+
+
+        let existing = cart.find(
+            item => item.name === name
+        );
+
+
+        if(existing){
+
+            existing.quantity++;
+
+        }
+        else{
+
+            cart.push({
+
+                name:name,
+
+                price:price,
+
+                image:image,
+
+                quantity:1
+
+            });
+
+        }
+
+
+
+        localStorage.setItem(
+            "cart",
+            JSON.stringify(cart)
+        );
+
+
+
+        alert(name + " added to cart 🛒");
+
+
+    }
+
+</script>
 </body>
 </html>
